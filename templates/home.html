@@ -1,4 +1,4 @@
-<title>Home</title>
+<!-- <title>Weekly Sales</title>
 {% extends "base.html" %}
 
 {% block content %}
@@ -6,5 +6,28 @@
   <h1>Welcome to our Adoption Page</h1>
   <p>Feel free to browse through for available puppies or see if you want to be a foster pawrent!</p>
   <p>Please select what you want to do from the top.</p>
+</div>
+{% endblock %} -->
+
+<title>Weekly Sales</title>
+{% extends "base.html" %}
+
+{% block content %}
+<div class="jumbotron">
+  <h1>Please enter in weekly sales below:</h1>
+  <p>Questions? Please contact your system administrator. or data thing person</p>
+  <form method="POST">
+      {# This hidden_tag is a CSRF security feature. #}
+      {{ form.hidden_tag() }}
+      <!-- forcing padding between these elements -->
+      <br>
+      <br>
+      {{ form.name.label }} {{ form.name() }}<br>
+      {{ form.size.label }} {{ form.size() }}<br>
+      {{ form.age.label }} {{ form.age() }}<br>
+      {{ form.breed.label }} {{ form.breed() }}<br>
+      {{ form.activity_mode.label }} {{ form.activity_mode() }}<br>
+      {{ form.submit() }}
+  </form>
 </div>
 {% endblock %}

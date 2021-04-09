@@ -16,14 +16,14 @@ class AddForm(FlaskForm):
                                    ('hy', 'hyper')])
     submit = SubmitField('Add Puppy')
 
-class AddOwnerForm(FlaskForm):
+# class AddOwnerForm(FlaskForm):
 
-    name = StringField('Name of Foster Pawrent:')
-    pup_id = IntegerField("Id of Puppy: ")
-    email = StringField('Email: ')
-    submit = SubmitField('Add Foster Pawrent')
+#     name = StringField('Name of Foster Pawrent:')
+#     pup_id = IntegerField("Id of Puppy: ")
+#     email = StringField('Email: ')
+#     submit = SubmitField('Add Foster Pawrent')
 
-class DelForm(FlaskForm):
+# class DelForm(FlaskForm):
 
-    id = IntegerField('Id Number of Adopted Puppy:')
-    submit = SubmitField('Remove Adopted Puppy')
+#     id = IntegerField('Id Number of Adopted Puppy:')
+#     submit = SubmitField('Remove Adopted Puppy')

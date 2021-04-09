@@ -2,7 +2,7 @@ import os
 from forms import  AddForm , DelForm, AddOwnerForm
 from flask import Flask, render_template, url_for, redirect
 from flask_sqlalchemy import SQLAlchemy
-from flask_migrate import Migrate
+# from flask_migrate import Migrate
 from config import username, password, secretKey
 app = Flask(__name__)
 # Key for Forms
@@ -11,7 +11,7 @@ app.config['SECRET_KEY'] = secretKey
 # connect to database
 basedir = os.path.abspath(os.path.dirname(__file__))
 # app.config['SQLALCHEMY_DATABASE_URI'] = 'mys:///' + os.path.join(basedir, 'data.sqlite')
-app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{username}:{password}@localhost/puppydb'
+app.config['SQLALCHEMY_DATABASE_URI'] = f'mysql+pymysql://{username}:{password}@localhost/tractorTekSales'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 #instantiate objects needed
@@ -20,7 +20,7 @@ db = SQLAlchemy(app)
 
 class Puppy(db.Model):
     # manually set name of table  to puppies
-    __tablename__ = 'puppies'
+    __tablename__ = 'tractorTekSales'
     # set column names
     id = db.Column(db.Integer,primary_key = True)
     name = db.Column(db.Text)
@@ -77,39 +77,39 @@ def index():
 def add_pup():
     form = AddForm()
 
-    #check that the values passed in are the correct data values using this method
-    if form.validate_on_submit():
-        name = form.name.data
-        size = form.size.data
-        age = form.age.data
-        breed = form.breed.data
-        activity_mode = form.activity_mode.data
+    # #check that the values passed in are the correct data values using this method
+    # if form.validate_on_submit():
+    #     name = form.name.data
+    #     size = form.size.data
+    #     age = form.age.data
+    #     breed = form.breed.data
+    #     activity_mode = form.activity_mode.data
 
-        # Add new Puppy to database
-        new_pup = Puppy(name, size, age, breed, activity_mode)
-        db.session.add(new_pup)
-        db.session.commit()
+    #     # Add new Puppy to database
+    #     new_pup = Puppy(name, size, age, breed, activity_mode)
+    #     db.session.add(new_pup)
+    #     db.session.commit()
 
-        return redirect(url_for('list_pup'))
+    #     return redirect(url_for('list_pup'))
 
-    return render_template('add.html',form=form)
+    # return render_template('add.html',form=form)
 
 #function to add ownder if at add owner route
-@app.route('/add_owner', methods=['GET', 'POST'])
-def add_owner():
+# @app.route('/add_owner', methods=['GET', 'POST'])
+# def add_owner():
 
-    form = AddOwnerForm()
+#     form = AddOwnerForm()
 
-    if form.validate_on_submit():
-        name = form.name.data
-        email = form.email.data
-        pup_id = form.pup_id.data
-        # Add new owner to database
-        new_owner = Owner(name, email, pup_id)
-        db.session.add(new_owner)
-        db.session.commit()
+#     if form.validate_on_submit():
+#         name = form.name.data
+#         email = form.email.data
+#         pup_id = form.pup_id.data
+#         # Add new owner to database
+#         new_owner = Owner(name, email, pup_id)
+#         db.session.add(new_owner)
+#         db.session.commit()
 
-        return redirect(url_for('list_pup'))
+#         return redirect(url_for('list_pup'))
 
     return render_template('add_owner.html',form=form)
 
@@ -122,19 +122,19 @@ def list_pup():
     return render_template('list.html', puppies=puppies)
 
 #delete a puppy if no longer needed =(
-@app.route('/delete', methods=['GET', 'POST'])
-def del_pup():
+# @app.route('/delete', methods=['GET', 'POST'])
+# def del_pup():
 
-    form = DelForm()
+#     form = DelForm()
 
-    if form.validate_on_submit():
-        id = form.id.data
-        pup = Puppy.query.get(id)
-        db.session.delete(pup)
-        db.session.commit()
+#     if form.validate_on_submit():
+#         id = form.id.data
+#         pup = Puppy.query.get(id)
+#         db.session.delete(pup)
+#         db.session.commit()
 
-        return redirect(url_for('list_pup'))
-    return render_template('delete.html',form=form)
+#         return redirect(url_for('list_pup'))
+#     return render_template('delete.html',form=form)
 
 
 #if im called main, run me
