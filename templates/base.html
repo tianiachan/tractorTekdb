@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="../static/css/style.css">
+  </head>
+
+    <body style="background-image: url('../static/puppywalk.jpg');">
+ <!-- collapsable nav bar -->
+    <nav class="navbar navbar-expand-sm navbar-dark bg-primary">
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- <div class="navbar-nav"> -->
+      <div class="collapse navbar-collapse" id="nav-content">   
+        <ul class="navbar-nav">
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('index') }}">Home</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('add_pup') }}">Add Pup</a>
+          </li>
+          <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('list_pup') }}">List of Pups</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('del_pup') }}">Delete Pup</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ url_for('add_owner') }}">Add Foster</a>
+          </li>
+        </ul>
+      </div>
+
+    </nav>
+
+    {% block content %}
+
+    {% endblock %}
+<!-- code for bottom nav bar -->
+  <nav class="navbar fixed-bottom navbar-expand-sm navbar-dark bg-info">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav-content" aria-controls="nav-content" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+    </button>
+    
+    <!-- Links -->
+    <div class="collapse navbar-collapse" id="nav-content">   
+    <ul class="navbar-nav">
+    <li class="nav-item">
+    <a class="nav-link" href="facebook.com">Facebook</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="instagram.com">Instagram</a>
+    </li>
+    <li class="nav-item">
+    <a class="nav-link" href="twitter.com">Twitter</a>
+    </li>
+    </ul>
+    </nav>
+  </body>
+</html>
