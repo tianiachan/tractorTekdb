@@ -81,9 +81,7 @@ class AddForm(FlaskForm):
                            ('50', 'W50'),
                            ('51', 'W51')])
     # activity_mode = StringField('Activity mode (couch potato, regular, hyper):')
-    sales_quantity = SelectField(u'Choose the activity mode:',
-                          choices=[('cp', 'couch potato'), ('rg', 'regular'),
-                                   ('hy', 'hyper')])
+    sales_quantity = IntegerField("How many units of the product was sold that week?")
     submit = SubmitField('Add Sales Information')
 
 # class AddOwnerForm(FlaskForm):

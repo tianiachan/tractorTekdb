@@ -27,7 +27,7 @@ class tractorSales(db.Model):
     employeeid = db.Column(db.Text)
     prod_code = db.Column(db.Text)
     week = db.Column(db.Text)
-    sales_quantity = db.Column(db.Text)
+    sales_quantity = db.Column(db.Integer)
     # owners = db.relationship('Owner',backref='weeklySales',uselist=False)
 
     # pass in values needed to initiate a puppy objt
