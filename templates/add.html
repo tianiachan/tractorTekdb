@@ -1,22 +1,22 @@
-<!-- <title>Add a Puppy</title>
+<title>Add Weekly Sales</title>
 {% extends "base.html" %}
 
 {% block content %}
 <div class="jumbotron">
-  <h1>Have a puppy that needs to be adopted?</h1>
-  <p>Add a new puppy to our database with the form below:</p>
+  <h1>Add weekly sales information</h1>
+
   <form method="POST">
       {# This hidden_tag is a CSRF security feature. #}
       {{ form.hidden_tag() }}
-       forcing padding between these elements 
+       <!-- forcing padding between these elements  -->
       <br>
       <br>
-      {{ form.name.label }} {{ form.name() }}<br>
-      {{ form.size.label }} {{ form.size() }}<br>
-      {{ form.age.label }} {{ form.age() }}<br>
-      {{ form.breed.label }} {{ form.breed() }}<br>
-      {{ form.activity_mode.label }} {{ form.activity_mode() }}<br>
+      {{ form.team_lead.label }} {{ form.team_lead() }}<br>
+      {{ form.employeeid.label }} {{ form.employeeid() }}<br>
+      {{ form.prod_code.label }} {{ form.prod_code() }}<br>
+      {{ form.week.label }} {{ form.week() }}<br>
+      {{ form.sales_quantity.label }} {{ form.sales_quantity() }}<br>
       {{ form.submit() }}
   </form>
 </div>
-{% endblock %} -->
+{% endblock %}

@@ -1,11 +1,11 @@
-<title>Puppies Available For Adoption</title>
+<title>Weekly Sales Report</title>
 {% extends "base.html" %}
 {% block content %}
 <div class="jumbotron">
-  <h1>Here is a list of all available puppies for adoption.</h1>
+  <h1>Here is the weekly sales report so far.</h1>
   <ul>
-    {% for pup in puppies  %}
-    <li>{{pup}}</li>
+    {% for sale in sales  %}
+    <li>{{sale}}</li>
     {% endfor %}
   </ul>
 

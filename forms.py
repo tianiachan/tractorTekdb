@@ -3,18 +3,35 @@ from wtforms import StringField, IntegerField, SelectField, SubmitField
 
 class AddForm(FlaskForm):
 
-    name = StringField('Name of Puppy:')
-    # size = StringField('Size of Puppy (small, medium, large):')
-    size = SelectField(u'Pick a size:',
-                          choices=[('sm', 'small'), ('med', 'medium'),
-                                   ('lg', 'large')])
-    age = IntegerField('Age of Puppy (years):')
-    breed = StringField('Breed of Puppy:')
+    team_lead = SelectField(u'Select your Team Lead:',
+                          choices=[('ge', 'Evans, Gina'),
+                           ('lh', 'Lawson, Harry'),
+                           ('jb', 'Bachmann, Jane'),
+                           ('bc', 'Clement, Beverly'),
+                           ('ma', 'Allen, Maude')])
+
+    #to be changed as we figure out if need the team lead id as well
+    employeeid = SelectField(u'What is your employee id?',
+                          choices=[('244', 'EMP244'),
+                           ('256', 'EMP256'),
+                           ('234', 'EMP234'),
+                           ('267', 'EMP267'),
+                           ('290', 'EMP290')])
+    prod_code = SelectField(u'Select the product code',
+                          choices=[('001', 'PROD_001'),
+                           ('002', 'PROD_002'),
+                           ('003', 'PROD_003'),
+                           ('004', 'PROD_004'),
+                           ('005', 'PROD_005'),
+                           ('006', 'PROD_006'),
+                           ('007', 'PROD_007'),
+                           ('008', 'PROD_008')])
+    week = StringField('Breed of Puppy:')
     # activity_mode = StringField('Activity mode (couch potato, regular, hyper):')
-    activity_mode = SelectField(u'Choose the activity mode:',
+    sales_quantity = SelectField(u'Choose the activity mode:',
                           choices=[('cp', 'couch potato'), ('rg', 'regular'),
                                    ('hy', 'hyper')])
-    submit = SubmitField('Add Puppy')
+    submit = SubmitField('Add Sales Information')
 
 # class AddOwnerForm(FlaskForm):
 
