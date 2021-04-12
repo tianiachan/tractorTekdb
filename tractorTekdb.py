@@ -23,7 +23,7 @@ class tractorSales(db.Model):
     __tablename__ = 'weeklySales'
     # set column names
     id = db.Column(db.Integer,primary_key = True)
-    team_lead = db.Column(db.Text)
+    # team_lead = db.Column(db.Text)
     employeeid = db.Column(db.Text)
     prod_code = db.Column(db.Text)
     week = db.Column(db.Text)
@@ -31,8 +31,8 @@ class tractorSales(db.Model):
     # owners = db.relationship('Owner',backref='weeklySales',uselist=False)
 
     # pass in values needed to initiate a puppy objt
-    def __init__(self, team_lead, employeeid, prod_code, week, sales_quantity):
-        self.team_lead = team_lead
+    def __init__(self, employeeid, prod_code, week, sales_quantity):
+        # self.team_lead = team_lead
         self.employeeid = employeeid
         self.prod_code = prod_code
         self.week = week
@@ -43,7 +43,7 @@ class tractorSales(db.Model):
         # if self.owners:
         #     return f"Week id: {self.id} | Team Lead: {self.team_lead} | Sales Quantity: {self.sales_quantity}"
         # else:
-            return f"Week id: {self.id} | Team Lead: {self.team_lead} | Sales Quantity: {self.sales_quantity}"
+            return f"Week id: {self.id} | Emp_id: {self.employeeid} | Prod_Code: {self.prod_code} Sales Quantity: {self.sales_quantity}"
 
 #create all tables
 db.create_all()
@@ -60,14 +60,15 @@ def add_weeklySales():
 
     #check that the values passed in are the correct data values using this method
     if form.validate_on_submit():
-        team_lead = form.team_lead.data
+        # team_lead = form.team_lead.data
         employeeid = form.employeeid.data
         prod_code = form.prod_code.data
         week = form.week.data
         sales_quantity = form.sales_quantity.data
 
         # Add new Puppy to database
-        new_week = tractorSales(team_lead, employeeid, prod_code, week, sales_quantity)
+        new_week = tractorSales( employeeid, prod_code, week, sales_quantity)
+        print(new_week)
         db.session.add(new_week)
         db.session.commit()
 

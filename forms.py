@@ -3,12 +3,13 @@ from wtforms import StringField, IntegerField, SelectField, SubmitField
 
 class AddForm(FlaskForm):
     #select field: 1st value is for into database, 2nd is what is displayed, in this case we want them the same
-    team_lead = SelectField(u'Select your Team Lead:',
-                          choices=[('Evans, Gina', 'Evans, Gina'),
-                           ('Lawson, Harry', 'Lawson, Harry'),
-                           ('Bachmann, Jane', 'Bachmann, Jane'),
-                           ('Clement, Beverly', 'Clement, Beverly'),
-                           ('Allen, Maude','Allen, Maude')])
+    # team_lead = SelectField(u'Select your Team Lead:',
+    #                       choices=[('Evans, Gina', 'Evans, Gina'),
+    #                        ('Lawson, Harry', 'Lawson, Harry'),
+    #                        ('Bachmann, Jane', 'Bachmann, Jane'),
+    #                        ('Clement, Beverly', 'Clement, Beverly'),
+    #                        ('Allen, Maude','Allen, Maude')])
+    #team lead not needed since matches the emp id
 
     #to be changed as we figure out if need the team lead id as well
     employeeid = SelectField(u'What is your employee id?',
