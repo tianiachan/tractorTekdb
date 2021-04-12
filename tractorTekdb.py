@@ -31,7 +31,7 @@ class tractorSales(db.Model):
     # owners = db.relationship('Owner',backref='weeklySales',uselist=False)
 
     # pass in values needed to initiate a puppy objt
-    def __init__(self,team_lead,employeeid,prod_code,week, sales_quantity):
+    def __init__(self, team_lead, employeeid, prod_code, week, sales_quantity):
         self.team_lead = team_lead
         self.employeeid = employeeid
         self.prod_code = prod_code
@@ -40,9 +40,9 @@ class tractorSales(db.Model):
 
     #this method is what is called if need a string representation of the object
     def __repr__(self):
-        if self.owners:
-            return f"Week id: {self.id} | Team Lead: {self.team_lead} | Sales Quantity: {self.sales_quantity}"
-        else:
+        # if self.owners:
+        #     return f"Week id: {self.id} | Team Lead: {self.team_lead} | Sales Quantity: {self.sales_quantity}"
+        # else:
             return f"Week id: {self.id} | Team Lead: {self.team_lead} | Sales Quantity: {self.sales_quantity}"
 
 #create all tables
