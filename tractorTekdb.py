@@ -26,16 +26,18 @@ class tractorSales(db.Model):
     # team_lead = db.Column(db.Text)
     employeeid = db.Column(db.Text)
     prod_code = db.Column(db.Text)
-    week = db.Column(db.Text)
+    # week = db.Column(db.Text)
+    dateEntered = db.Column(db.Date)
     sales_quantity = db.Column(db.Integer)
+    # dateEntered = db.Column(db.Integer)
     # owners = db.relationship('Owner',backref='weeklySales',uselist=False)
 
     # pass in values needed to initiate a puppy objt
-    def __init__(self, employeeid, prod_code, week, sales_quantity):
+    def __init__(self, employeeid, prod_code, sales_quantity, dateEntered):
         # self.team_lead = team_lead
         self.employeeid = employeeid
         self.prod_code = prod_code
-        self.week = week
+        self.dateEntered = dateEntered
         self.sales_quantity = sales_quantity
 
     #this method is what is called if need a string representation of the object
@@ -63,12 +65,11 @@ def add_weeklySales():
         # team_lead = form.team_lead.data
         employeeid = form.employeeid.data
         prod_code = form.prod_code.data
-        week = form.week.data
+        dateEntered = form.dateEntered.data
         sales_quantity = form.sales_quantity.data
 
         # Add new Puppy to database
-        new_week = tractorSales( employeeid, prod_code, week, sales_quantity)
-        print(new_week)
+        new_week = tractorSales( employeeid, prod_code, dateEntered, sales_quantity)
         db.session.add(new_week)
         db.session.commit()
 
