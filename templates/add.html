@@ -4,6 +4,15 @@
 {% block content %}
 <div class="jumbotron">
   <h1>Add weekly sales information</h1>
+  <!-- flash message for errors -->
+  {% for mess in get_flashed_messages() %}
+  <div class="alert alert-warning alert-dismissible fade show" role="alert">
+    {{mess}}
+    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+  </div>
+  {% endfor %}
 
   <form method="POST">
       {# This hidden_tag is a CSRF security feature. #}
@@ -11,10 +20,11 @@
        <!-- forcing padding between these elements  -->
       <br>
       <br>
-      {{ form.employeeid.label }} {{ form.employeeid() }}<br>
-      {{ form.prod_code.label }} {{ form.prod_code() }}<br>
-      {{ form.dateEntered.label }} {{ form.dateEntered() }}<br>
-      {{ form.sales_quantity.label }} {{ form.sales_quantity() }}<br>
+      {{ form.emp_id.label }} {{ form.emp_id() }}<br>
+      {{ form.item_id.label }} {{ form.item_id() }}<br>
+      {{ form.year.label }} {{ form.year() }}<br>
+      {{ form.week.label }} {{ form.week() }}<br>
+      {{ form.quantity.label }} {{ form.quantity() }}<br>
       {{ form.submit() }}
   </form>
 </div>

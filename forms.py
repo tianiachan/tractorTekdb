@@ -3,22 +3,13 @@ from wtforms import StringField, IntegerField, SelectField, DateField, SubmitFie
 
 class AddForm(FlaskForm):
     #select field: 1st value is for into database, 2nd is what is displayed, in this case we want them the same
-    # team_lead = SelectField(u'Select your Team Lead:',
-    #                       choices=[('Evans, Gina', 'Evans, Gina'),
-    #                        ('Lawson, Harry', 'Lawson, Harry'),
-    #                        ('Bachmann, Jane', 'Bachmann, Jane'),
-    #                        ('Clement, Beverly', 'Clement, Beverly'),
-    #                        ('Allen, Maude','Allen, Maude')])
-    #team lead not needed since matches the emp id
-
-    #to be changed as we figure out if need the team lead id as well
-    employeeid = SelectField(u'What is your employee id?',
+    emp_id = SelectField(u'What is your employee id?',
                           choices=[('EMP244', 'EMP244'),
                            ('EMP256', 'EMP256'),
                            ('EMP234', 'EMP234'),
                            ('EMP267', 'EMP267'),
                            ('EMP290', 'EMP290')])
-    prod_code = SelectField(u'Select the product code',
+    item_id = SelectField(u'Select the product code',
                           choices=[('PROD_001', 'PROD_001'),
                            ('PROD_002', 'PROD_002'),
                            ('PROD_003', 'PROD_003'),
@@ -32,19 +23,68 @@ class AddForm(FlaskForm):
                            ('ESP_003', 'ESP_003'),
                            ('ESP_004', 'ESP_004'),
                            ('ESP_005', 'ESP_005'),
-                           ('ESP_006', 'ESP_006')])
-    # dateEntered = DateField("Input the date in this format mm/dd/yyyy", format='%m/%d%Y')
-    sales_quantity = IntegerField("How many units of the product was sold that week?")
+                           ('ESP_006', 'ESP_006')])  
+    year = SelectField(u'Select which year we are entering',
+                          choices=[('2019', '2019'),
+                           ('2020', '2020')])      
+    #what I started with               
+    # week = SelectField(u'Select the week you want to enter',
+    #                       choices=[('0', '0'),
+    #                        ('1', '1'),
+    #                        ('2', '2'),
+    #                        ('3', '3'),
+    #                        ('4', '4'),
+    #                        ('5', '5'),
+    #                        ('6', '6'),
+    #                        ('7', '7'),
+    #                        ('8', '8'),
+    #                        ('9', '9'),
+    #                        ('10', '10'),
+    #                        ('11', '11'),
+    #                        ('12', '12'),
+    #                        ('13', '13'),
+    #                        ('14', '14'),
+    #                        ('15', '15'),
+    #                        ('16', '16'),
+    #                        ('17', '17'),
+    #                        ('18', '18'),
+    #                        ('19', '19'),
+    #                        ('20', '20'),
+    #                        ('21', '21'),
+    #                        ('22', '22'),
+    #                        ('23', '23'),
+    #                        ('24', '24'),
+    #                        ('25', '25'),
+    #                        ('26', '26'),
+    #                        ('27', '27'),
+    #                        ('28', '28'),
+    #                        ('29', '29'),
+    #                        ('30', '30'),
+    #                        ('31', '31'),
+    #                        ('32', '32'),
+    #                        ('33', '33'),
+    #                        ('34', '34'),
+    #                        ('35', '35'),
+    #                        ('36', '36'),
+    #                        ('37', '37'),
+    #                        ('38', '38'),
+    #                        ('39', '39'),
+    #                        ('40', '40'),
+    #                        ('41', '41'),
+    #                        ('42', '42'),
+    #                        ('43', '43'),
+    #                        ('44', '44'),
+    #                        ('45', '45'),
+    #                        ('46', '46'),
+    #                        ('47', '47'),
+    #                        ('48', '48'),
+    #                        ('49', '49'),
+    #                        ('50', '50'),
+    #                        ('51', '51')])
+    #what i ended with - thank you Hoa
+    week = SelectField('Week of the year:', choices=[(a,a) for a in range(0,52)])
+
+    quantity = IntegerField("How many units of the product was sold that week?")
     submit = SubmitField('Add Sales Information')
 
-# class AddOwnerForm(FlaskForm):
-
-#     name = StringField('Name of Foster Pawrent:')
-#     pup_id = IntegerField("Id of Puppy: ")
-#     email = StringField('Email: ')
-#     submit = SubmitField('Add Foster Pawrent')
-
-# class DelForm(FlaskForm):
-
-#     id = IntegerField('Id Number of Adopted Puppy:')
-#     submit = SubmitField('Remove Adopted Puppy')
+#later should add functionality to delete entries or edit  entries as well as autopopulate
