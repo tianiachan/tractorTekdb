@@ -58,6 +58,7 @@ def add_weeklySales():
 
     #check that the values passed in are the correct data values using this method
     if form.validate_on_submit():
+        #error checking for quantity
         if form.quantity.data < 1 or form.quantity.data > 200:
             flash("Please enter valid quantity between 1 and 200")
             return redirect(url_for('add_weeklySales'))
@@ -67,11 +68,11 @@ def add_weeklySales():
         week = form.week.data
         quantity = form.quantity.data
 
-        # Add new Puppy to database
+        # Add new week to database
         new_week = tractorSales( emp_id, item_id, year, week, quantity)
         db.session.add(new_week)
         db.session.commit()
-
+        #went through, show list
         return redirect(url_for('list_sales'))
 
     return render_template('add.html',form=form)
