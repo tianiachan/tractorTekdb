@@ -13,7 +13,7 @@ Jupyter Notebooks: to run the basic analysis
 4. Through the terminal in VS code, type "python tractorTekdb.py" to launch the website through Flask. Some extra installation of python packages may be needed. Use pip install to install said packages and then it should run locally.
 
 ### Video walk through:
-under construction
+https://www.youtube.com/watch?v=asaHzIZs8Jw
 
 ### Follow Up Goals:
 * run further analysis
